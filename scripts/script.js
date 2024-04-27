@@ -36,36 +36,44 @@
         .then(post3 => {
           console.log("Post 3:", post3)
         })
+        .then(post101 => {
+          console.log("Post 101:", post101)
+          return fetchPost(101)
+        })
         .catch(error => {
           console.error("Error:", error)
         })
 
 // Async / await
 
-async function fetchPostsInOrder() {
-    try {
-        const post15 = await fetchPost(15)
-        console.log(post15)
+// async function fetchPostsInOrder() {
+//     try {
+//         const post15 = await fetchPost(15)
+//         console.log(post15)
 
-        const post23 = await fetchPost(23)
-        console.log(post23)
+//         const post23 = await fetchPost(23)
+//         console.log(post23)
 
-        const post7 = await fetchPost(7)
-        console.log(post7)
+//         const post7 = await fetchPost(7)
+//         console.log(post7)
 
-        const post3 = await fetchPost(3)
-        console.log(post3)
-    } catch (error) {
-        console.error(error)
-    }
-}
+//         const post3 = await fetchPost(3)
+//         console.log(post3)
 
-async function fetchPost(postId) {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-    if (!response.ok) {
-        throw new Error(`Error: Unable to load post ${postId}`)
-    }
-    return response.json()
-}
+//         const post101 = await fetchPost(101)
+//         console.log(post101)
 
-fetchPostsInOrder()
+//     } catch (error) {
+//         console.error(error)
+//     }
+// }
+
+// async function fetchPost(postId) {
+//     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+//     if (!response.ok) {
+//         throw new Error(`Error: Unable to load post ${postId}`)
+//     }
+//     return response.json()
+// }
+
+// fetchPostsInOrder()
